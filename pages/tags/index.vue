@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import colorGenerator from "~~/utils/colorGenerator";
+import useWpApi from "~/composables/useWpApi";
 useHead({
   title: "Tags",
   meta: [

@@ -1,4 +1,3 @@
-
 <script lang="ts" setup>
 const params = useRoute().params;
 
@@ -7,8 +6,7 @@ const { data: tags, error } = await useWpApi().getTag(
 );
 
 const tag = tags.value[0];
-const { data: posts, error: postsError } = await useWpApi().getPosts(
-  tag.id
+const { data: posts, error: postsError } = await useWpApi().getTagPosts(tag.id
 );
 
 useHead({

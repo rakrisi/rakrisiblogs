@@ -14,7 +14,6 @@ export default () => {
 
   const getPosts = async (
     category?: number,
-    tag?: number,
     page: number = 1,
     perPgae: number = 10,
     fields: string = "author,id,excerpt,title,link,slug,date"
@@ -22,9 +21,6 @@ export default () => {
     let query: string = `posts?page=${page}&per_page=${perPgae}&_embed=1`;
     if (category) {
       query += `&categories=${category}`;
-    }
-    if (tag) {
-      query += `&tags=${tag}`;
     }
     return get<Post[]>(query);
   };
@@ -48,6 +44,18 @@ export default () => {
   const getTag = async (slug: string) => {
     return get<any>(`tags?slug=${slug}`);
   };
+  const getTagPosts = async (
+      tag?: number,
+      page: number = 1,
+      perPgae: number = 10,
+      fields: string = "author,id,excerpt,title,link,slug,date"
+  ) => {
+    let query: string = `posts?page=${page}&per_page=${perPgae}&_embed=1`;
+    if (tag) {
+      query += `&tags=${tag}`;
+    }
+    return get<Post[]>(query);
+  };
 
   return {
     get,
@@ -57,5 +65,6 @@ export default () => {
     getCatgory,
     getTags,
     getTag,
+    getTagPosts
   };
 };
