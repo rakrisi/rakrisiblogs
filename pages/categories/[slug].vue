@@ -30,7 +30,6 @@ useHead({
             :key="post.id"
             :title="post.title.rendered"
             :image="post._embedded['wp:featuredmedia'][0]?.source_url"
-            :excerpt="post.excerpt.rendered"
             :slug="post.slug"
         ></BlogGrid>
       </div>

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 defineProps<{
   title: string;
-  excerpt?: string;
   image?: string;
   slug?: string;
 }>();
@@ -23,12 +22,6 @@ defineProps<{
       <h3 class="grid__content-title text-xl font-semibold mb-2">
         {{ title }}
       </h3>
-      <p
-        v-if="excerpt"
-        class="grid__content-excerpt mb-2 text-sm text-clip overflow-hidden ..."
-      >
-      <span v-html="excerpt.substring(0,200)"></span>
-      </p>
       <NuxtLink
         v-if="slug"
         class="blog__readmore border-b-2 border-primary-500 inline-flex items-center"
